@@ -1,0 +1,90 @@
+#To view created images
+docker images
+
+#To view sample images available in docker registry
+docker search tomcat
+docker search nginx
+docker search wordpress
+
+#To pull(download) an image from docker registry
+docker pull tomcat
+
+#To create a dockerfile
+vi dockerfile
+
+#To build an docker image
+docker build -t App:1.0 .
+docker build -t App:2.0 -f dockerfile .
+-t tagname
+-f ilename
+
+#To spin up a docker container
+docker run -d -p 85:80 App:2.0 
+docker run -d -p 85:80 imageid
+-d detached mode
+-p port number
+-d detached mode
+
+#To view running containers
+docker ps
+
+#To view both stopped and running containers
+docker ps -a
+
+#To start/stop a container
+docker start containerID
+docker stop coontainerID
+
+#To know the details of a container
+docker inspect containerID
+
+#To go inside a docker container
+docker exec -it containerID bash/sh
+
+#To check image hitory
+docker history imageName/ID
+
+#To check container logs
+docker logs containerID
+
+#To check CPU and memory consumption of particular container ID
+docker stats containerID
+
+#To push an image ro dockerhub/regitry
+docker push username/reponame:tagname
+
+#Command to login into dockerhub/re3gistry
+docker login
+
+#Docker volume commands
+docker volume create naga
+docker volume ls
+docker volume inspect naga
+
+#We are running Jenkins image by attaching ‘naga’ volume
+docker run --name myjenkins -v naga:/var/jenkins_home -p 8070:8080 -p 50000:50000 jenkins/jenkins
+/var/Jenkins_home- Jenkins def directory
+
+#docker network commands
+docker network ls
+docker network create naga
+docker network inspect naga
+
+#command to check the memory
+df -h
+
+#To delete all containers
+docker rm $(docker ps -aq)
+
+#To delete all images
+docker rmi $(docker images -q)
+
+#To delete all untagged images
+docker rmi $(docker images -q --filter "dangling=true")
+
+#docker-compose commands
+#To start multiple conyainers at a time
+docker-compose up -d
+
+
+
