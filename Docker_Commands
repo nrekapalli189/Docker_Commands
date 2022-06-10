@@ -38,8 +38,10 @@ docker ps -a
 docker start containerID
 docker stop coontainerID
 
-#To know the details of a container
-docker inspect containerID
+#To know the details of a container/volume/network
+docker inspect containerID/name
+docker inspect volumeID/name
+docker inspect networkID/name
 
 #To go inside a docker container
 docker exec -it containerID /bin/bash or /sh
