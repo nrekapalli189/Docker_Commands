@@ -42,7 +42,10 @@ docker stop coontainerID
 docker inspect containerID
 
 #To go inside a docker container
-docker exec -it containerID bash/sh
+docker exec -it containerID /bin/bash or /sh
+
+#To go directly inside the container while spinning up 
+docker run -it -d <imageName/ID> 
 
 #To check image hitory
 docker history imageName/ID
@@ -63,6 +66,17 @@ docker login
 docker volume create naga
 docker volume ls
 docker volume inspect naga
+
+#To attach named volume
+docker run -it -v vol1:/opt/naga1 <imageName> /bin/bash
+vol1-new volume
+/opt/naga1-directory in container
+
+#To attach hosted volume
+docker run -it -v /opt/docker:/opt/mountdir <imagename> /bin/bash
+/opt/docker is a shared/hosted volume 
+/opt/d1 is a container volume.
+Basically, here you don’t create a new volume, you just attach a local volume to container volume. 
 
 #We are running Jenkins image by attaching ‘naga’ volume
 docker run --name myjenkins -v naga:/var/jenkins_home -p 8070:8080 -p 50000:50000 jenkins/jenkins
