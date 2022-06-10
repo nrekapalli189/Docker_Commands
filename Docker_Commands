@@ -104,3 +104,13 @@ docker commit <containerID> <newIamgeName>
 #How to copy a file to a container
 docker cp <filename>(SOURCE) <containerID>:/tmp(destination)
 
+#how to tag an image with dockerhub username
+docker tag <currentImageName> <newImageName>
+docker tag webserver1.0 nrekapalli189/webserver:latest
+
+Webserver:1.0 -existing image name
+nrekapalli189-docker hub username
+Webserver-repo name
+Latest-new image name
+
+
