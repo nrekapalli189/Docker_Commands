@@ -93,8 +93,14 @@ df -h
 #To delete all containers
 docker rm $(docker ps -aq)
 
+#To delete single container
+docker rm <containerID/name>
+
 #To delete all images
 docker rmi $(docker images -q)
+
+#To delete single image
+docker rmi <imageID/name>
 
 #To delete all untagged images
 docker rmi $(docker images -q --filter "dangling=true")
