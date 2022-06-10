@@ -1,3 +1,6 @@
+#Default working directory of docker
+/var/lib/docker
+
 #To view created images
 docker images
 
@@ -86,5 +89,18 @@ docker rmi $(docker images -q --filter "dangling=true")
 #To start multiple conyainers at a time
 docker-compose up -d
 
+#To check logs of a specific container
+docker logs <containerName/ID>
 
+#To check errors in container
+docker logs <containerName/ID> | grep -i Error
+
+#To check if specific container is up or not
+docker ps -a | grep -i <containerName/ID>
+
+#Command to create image from container
+docker commit <containerID> <newIamgeName>
+
+#How to copy a file to a container
+docker cp <filename>(SOURCE) <containerID>:/tmp(destination)
 
